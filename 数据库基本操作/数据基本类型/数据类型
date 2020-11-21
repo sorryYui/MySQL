@@ -1,0 +1,15 @@
+MySQL支持多种类型，大致可以分为三类：数值、日期/时间和字符串(字符)类型。
+1.数值类型
+  1.严格数值数据类型
+    INTEGER,SMALLINT,DECIMAL,NUMERIC;
+  2.近似数值数据类型
+    FLOAT,REAL,DOUBLE PRECISION;
+注意：INT为INTEGER的同义词，DEC是DECIMAL的同义词
+另外还有一些数值数据类型，见图片(数值数据.jpg)
+2.日期类型
+表示时间值的日期和时间类型为DATETIME、DATE、TIMESTAMP、TIME和YEAR。
+每个时间类型有一个有效值范围和一个"零"值，当指定不合法的MySQL不能表示的值时使用"零"值。
+另外日期数据类型，见图片(日期类型.jpg)
+3.字符串(字符)类型
+字符串类型指CHAR、VARCHAR、BINARY、VARBINARY、BLOB、TEXT、ENUM和SET。该节描述了这些类型如何工作以及如何在查询中使用这些类型。
+另外见图片(字符串数据.jpg)
