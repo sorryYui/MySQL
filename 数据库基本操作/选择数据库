@@ -1,0 +1,17 @@
+命令：use <数据库名>
+例子：
+  mysql> SHOW DATABASES
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| databasetest       |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.09 sec)
+
+mysql> use databasetest
+Database changed
