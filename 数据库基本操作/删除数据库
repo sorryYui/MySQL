@@ -1,0 +1,16 @@
+命令1：
+drop database <数据库名>;
+例子：
+mysql> DROP DATABASE database_2
+    -> ;
+Query OK, 0 rows affected (0.05 sec)
+命令2： mysqladmin -u root -p drop <数据库名>
+例子：
+C:\WINDOWS\system32>mysqladmin -u root -p DROP database_1
+Enter password: ************
+Dropping the database is potentially a very bad thing to do.
+Any data stored in the database will be destroyed.
+
+Do you really want to drop the 'database_1' database [y/N] y
+Database "database_1" dropped
+//注意：被删除的数据库中的数据将永久消失。
