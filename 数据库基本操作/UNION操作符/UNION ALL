@@ -1,0 +1,22 @@
+简介:选取表中所有以标定的元素
+命令:
+SELECT 列名... FROM 表名...
+UNION ALL
+SELECT 列名 FROM 表名....
+...
+例子:
+ SELECT country FROM tbl_2
+    -> UNION ALL
+    -> SELECT country FROM tbl_3;
++---------+
+| country |
++---------+
+| USA     |
+| CN      |
+| CN      |
+| USA     |
+| IND     |
+| CN      |
+| CN      |
++---------+
+7 rows in set (0.00 sec)
