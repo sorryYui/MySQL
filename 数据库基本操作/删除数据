@@ -1,0 +1,16 @@
+命令:DELETE FROM table_name [WHERE Clause]
+如果没有指定 WHERE 子句，MySQL 表中的所有记录将被删除。
+可以在 WHERE 子句中指定任何条件
+可以在单个表中一次性删除记录。
+例子:
+mysql> DELETE FROM tbl_1 WHERE tbl_1_id = 3;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM tbl_1;
++----------+-------------+--------------+-----------------+
+| tbl_1_id | tbl_1_title | tbl_1_author | submission_date |
++----------+-------------+--------------+-----------------+
+|        1 | C           | 菜鸡         | 2020-11-22      |
+|        2 | MySQL       | 菜鸡         | 2020-11-22      |
++----------+-------------+--------------+-----------------+
+2 rows in set (0.00 sec)
