@@ -1,0 +1,24 @@
+我们知道在 MySQL 中使用 SQL SELECT 命令来读取数据， 同时我们可以在 SELECT 语句中使用 WHERE 子句来获取指定的记录。
+WHERE 子句中可以使用等号 = 来设定获取数据的条件，如 "runoob_author = 'RUNOOB.COM'"。
+但是有时候我们需要获取 runoob_author 字段含有 "COM" 字符的所有记录，这时我们就需要在 WHERE 子句中使用 SQL LIKE 子句。
+SQL LIKE 子句中使用百分号 %字符来表示任意字符，类似于UNIX或正则表达式中的星号 *。
+如果没有使用百分号 %, LIKE 子句与等号 = 的效果是一样的。
+命令:SELECT field1, field2,...fieldN 
+FROM table_nameKE
+WHERE field1 LIKE condition1 [AND [OR]] filed2 = 'somevalue'
+可以在 WHERE 子句中指定任何条件。
+可以在 WHERE 子句中使用LIKE子句。
+可以使用LIKE子句代替等号 =。
+LIKE 通常与 % 一同使用，类似于一个元字符的搜索。
+可以使用 AND 或者 OR 指定一个或多个条件。
+可以在 DELETE 或 UPDATE 命令中使用 WHERE...LIKE 子句来指定条件。
+例子:
+mysql> SELECT * FROM tbl_1 WHERE tbl_1_author LIKE "菜鸡";
++----------+-------------+--------------+-----------------+
+| tbl_1_id | tbl_1_title | tbl_1_author | submission_date |
++----------+-------------+--------------+-----------------+
+|        1 | C           | 菜鸡         | 2020-11-22      |
+|        2 | MySQL       | 菜鸡         | 2020-11-22      |
++----------+-------------+--------------+-----------------+
+2 rows in set (0.00 sec)
+
