@@ -1,0 +1,20 @@
+命令:
+UPDATE table_name SET field1=new-value1, field2=new-value2
+[WHERE Clause]
+可以同时更新一个或多个字段。
+可以在 WHERE 子句中指定任何条件。
+可以在一个单独表中同时更新数据。
+例子:
+mysql> UPDATE tbl_1 SET tbl_1_title = "C" WHERE tbl_1_id = 1;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM tbl_1;
++----------+-------------+--------------+-----------------+
+| tbl_1_id | tbl_1_title | tbl_1_author | submission_date |
++----------+-------------+--------------+-----------------+
+|        1 | C           | 菜鸡         | 2020-11-22      |
+|        2 | MySQL       | 菜鸡         | 2020-11-22      |
+|        3 | JAVA        | 菜鸡         | 2020-01-01      |
++----------+-------------+--------------+-----------------+
+3 rows in set (0.00 sec)
