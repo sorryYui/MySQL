@@ -1,0 +1,7 @@
+命令: DROP TABLE table_name ;
+例子：
+DROP TABLE databasetest_tbl;
+Query OK, 0 rows affected (0.03 sec)
+结果：
+ SHOW TABLES;
+Empty set (0.00 sec)
