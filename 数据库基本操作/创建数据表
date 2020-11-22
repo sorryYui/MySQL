@@ -1,0 +1,32 @@
+创建MySQL数据表需要以下信息：
+  1.表名
+  2.表字段名
+  3.定义每个表字段
+命令：CREATE TABLE table_name (column_name column_type);
+mysql>  CREATE TABLE databasetest_tbl(
+    ->  databasetest_id INT NOT NULL AUTO_INCREMENT,
+    -> database_title VARCHAR(100) NOT NULL,
+    ->  databasetest_author VARCHAR(40) NOT NULL,
+    ->  submission_date DATE,
+    ->  PRIMARY KEY(databasetest_id))
+    -> ENGINE = InnoDB DEFAULT CHARSET = utf8;
+结果：
+mysql> SHOW TABLES
+    -> ;
++------------------------+
+| Tables_in_databasetest |
++------------------------+
+| databasetest_tbl       |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> DESC databasetest_tbl;
++---------------------+--------------+------+-----+---------+----------------+
+| Field               | Type         | Null | Key | Default | Extra          |
++---------------------+--------------+------+-----+---------+----------------+
+| databasetest_id     | int          | NO   | PRI | NULL    | auto_increment |
+| database_title      | varchar(100) | NO   |     | NULL    |                |
+| databasetest_author | varchar(40)  | NO   |     | NULL    |                |
+| submission_date     | date         | YES  |     | NULL    |                |
++---------------------+--------------+------+-----+---------+----------------+
+4 rows in set (0.02 sec)
