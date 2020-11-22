@@ -1,0 +1,33 @@
+命令：INSERT INTO table_name ( field1, field2,...fieldN )
+                       VALUES
+                       ( value1, value2,...valueN );
+例子：
+  
+mysql> INSERT INTO tbl_1
+    -> (tbl_1_title,tbl_1_author,submission_date)
+    -> VALUES
+    -> ("C++","菜鸡",NOW());
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> INSERT INTO tbl_1
+    -> (tbl_1_title,tbl_1_author,submission_date)
+    -> VALUES
+    -> ("MySQL","菜鸡",NOW());
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> INSERT INTO tbl_1
+    -> (tbl_1_title,tbl_1_author,submission_date)
+    -> VALUES
+    -> ("JAVA","菜鸡",'2020-01-01');
+Query OK, 1 row affected (0.00 sec)
+结果：
+  
+mysql> SELECT * FROM tbl_1;
++----------+-------------+--------------+-----------------+
+| tbl_1_id | tbl_1_title | tbl_1_author | submission_date |
++----------+-------------+--------------+-----------------+
+|        1 | C++         | 菜鸡         | 2020-11-22      |
+|        2 | MySQL       | 菜鸡         | 2020-11-22      |
+|        3 | JAVA        | 菜鸡         | 2020-01-01      |
++----------+-------------+--------------+-----------------+
+3 rows in set (0.00 sec)
