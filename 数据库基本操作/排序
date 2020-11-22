@@ -1,0 +1,7 @@
+命令：
+SELECT field1, field2,...fieldN FROM table_name1, table_name2...
+ORDER BY field1 [ASC [DESC][默认 ASC]], [field2...] [ASC [DESC][默认 ASC]]
+可以使用任何字段来作为排序的条件，从而返回排序后的查询结果。
+可以设定多个字段来排序。
+可以使用 ASC 或 DESC 关键字来设置查询结果是按升序或降序排列。 默认情况下，它是按升序排列。
+可以添加 WHERE...LIKE 子句来设置条件。
