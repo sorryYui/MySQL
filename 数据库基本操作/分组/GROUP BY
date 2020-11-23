@@ -1,0 +1,32 @@
+简介：
+GROUP BY 语句根据一个或多个列对结果集进行分组。
+在分组的列上我们可以使用 COUNT, SUM, AVG,等函数。
+命令：
+SELECT column_name, function(column_name)
+FROM table_name
+WHERE column_name operator value
+GROUP BY column_name;
+例子：
+ SELECT * FROM employee_tbl;
++----+--------+------------+--------+
+| id | name   | datetime   | signin |
++----+--------+------------+--------+
+|  1 | 小明   | 2016-04-22 |      1 |
+|  2 | 小王   | 2016-04-20 |      3 |
+|  3 | 小丽   | 2016-04-19 |      2 |
+|  4 | 小王   | 2016-04-07 |      4 |
+|  5 | 小明   | 2016-04-11 |      4 |
+|  6 | 小明   | 2016-04-04 |      2 |
++----+--------+------------+--------+
+6 rows in set (0.00 sec)
+
+SELECT name, COUNT(*) FROM employee_tbl GROUP BY name;
++--------+----------+
+| name   | COUNT(*) |
++--------+----------+
+| 小明   |        3 |
+| 小王   |        2 |
+| 小丽   |        1 |
++--------+----------+
+3 rows in set (0.00 sec)
+
