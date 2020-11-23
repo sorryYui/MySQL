@@ -1,0 +1,46 @@
+简介：
+JOIN 按照功能大致分为如下三类：
+INNER JOIN（内连接,或等值连接）：获取两个表中字段匹配关系的记录。
+LEFT JOIN（左连接）：获取左表所有记录，即使右表没有对应匹配的记录。
+RIGHT JOIN（右连接）： 与 LEFT JOIN 相反，用于获取右表所有记录，即使左表没有对应匹配的记录。
+命令：
+[类型]JOIN;
+1.CROSS JOIN(笛卡尔积)
+  1.命令：CROSS JOIN;
+  例子：
+   SELECT * FROM tbl_2 CROSS JOIN tbl_3;
++----------+---------------+--------------------------+-------+---------+----+------------+-------------------+---------+
+| tbl_2_id | name          | url                      | alexa | country | id | app_name   | url               | country |
++----------+---------------+--------------------------+-------+---------+----+------------+-------------------+---------+
+|        1 | Google        | https://www.google.com/  |     1 | USA     |  1 | QQ APP     | http://im.qq.com/ | CN      |
+|        1 | Google        | https://www.google.com/  |     1 | USA     |  2 | 微博 APP   | http://weibo.com/ | CN      |
+|        2 | 淘宝          | https://www.taobao.com/  |    13 | CN      |  1 | QQ APP     | http://im.qq.com/ | CN      |
+|        2 | 淘宝          | https://www.taobao.com/  |    13 | CN      |  2 | 微博 APP   | http://weibo.com/ | CN      |
+|        3 | 微博          | http://weibo.com/        |    20 | CN      |  1 | QQ APP     | http://im.qq.com/ | CN      |
+|        3 | 微博          | http://weibo.com/        |    20 | CN      |  2 | 微博 APP   | http://weibo.com/ | CN      |
+|        4 | Facebook      | https://facebook.com/    |     3 | USA     |  1 | QQ APP     | http://im.qq.com/ | CN      |
+|        4 | Facebook      | https://facebook.com/    |     3 | USA     |  2 | 微博 APP   | http://weibo.com/ | CN      |
+|        5 | stackoverflow | http://stackoverflow.com |     0 | IND     |  1 | QQ APP     | http://im.qq.com/ | CN      |
+|        5 | stackoverflow | http://stackoverflow.com |     0 | IND     |  2 | 微博 APP   | http://weibo.com/ | CN      |
++----------+---------------+--------------------------+-------+---------+----+------------+-------------------+---------+
+10 rows in set (0.00 sec)
+SELECT * FROM tbl_2;
++----------+---------------+--------------------------+-------+---------+
+| tbl_2_id | name          | url                      | alexa | country |
++----------+---------------+--------------------------+-------+---------+
+|        1 | Google        | https://www.google.com/  |     1 | USA     |
+|        2 | 淘宝          | https://www.taobao.com/  |    13 | CN      |
+|        3 | 微博          | http://weibo.com/        |    20 | CN      |
+|        4 | Facebook      | https://facebook.com/    |     3 | USA     |
+|        5 | stackoverflow | http://stackoverflow.com |     0 | IND     |
++----------+---------------+--------------------------+-------+---------+
+5 rows in set (0.00 sec)
+ SELECT * FROM tbl_3;
++----+------------+-------------------+---------+
+| id | app_name   | url               | country |
++----+------------+-------------------+---------+
+|  1 | QQ APP     | http://im.qq.com/ | CN      |
+|  2 | 微博 APP   | http://weibo.com/ | CN      |
++----+------------+-------------------+---------+
+2 rows in set (0.00 sec)
+即对表1和表二进行笛卡尔乘积。假如表1中有n条数据，表2中有m条数据，则CROSS JOIN命令后展示的表有n * m条数据。
