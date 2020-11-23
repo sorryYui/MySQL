@@ -1,0 +1,12 @@
+WITH ROLLUP 可以实现在分组统计数据基础上再进行相同的统计（SUM,AVG,COUNT…）。
+例子：
+ SELECT name, SUM(signin) as signin_count FROM employee_tbl GROUP BY name WITH ROLLUP;
++--------+--------------+
+| name   | signin_count |
++--------+--------------+
+| 小丽   |            2 |
+| 小明   |            7 |
+| 小王   |            7 |
+| NULL   |           16 |
++--------+--------------+
+4 rows in set (0.00 sec)
