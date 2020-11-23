@@ -1,0 +1,32 @@
+简介：从数学的角度讲就是求两个表的交集，从笛卡尔积的角度讲就是从笛卡尔积中挑出ON子句条件成立的记录。
+命令：
+INNER JOIN....ON....
+例子：
+SELECT * FROM tbl_2 INNER JOIN tbl_3 ON tbl_2.country = tbl_3.country;
++----------+--------+-------------------------+-------+---------+----+------------+-------------------+---------+
+| tbl_2_id | name   | url                     | alexa | country | id | app_name   | url               | country |
++----------+--------+-------------------------+-------+---------+----+------------+-------------------+---------+
+|        2 | 淘宝   | https://www.taobao.com/ |    13 | CN      |  1 | QQ APP     | http://im.qq.com/ | CN      |
+|        2 | 淘宝   | https://www.taobao.com/ |    13 | CN      |  2 | 微博 APP   | http://weibo.com/ | CN      |
+|        3 | 微博   | http://weibo.com/       |    20 | CN      |  1 | QQ APP     | http://im.qq.com/ | CN      |
+|        3 | 微博   | http://weibo.com/       |    20 | CN      |  2 | 微博 APP   | http://weibo.com/ | CN      |
++----------+--------+-------------------------+-------+---------+----+------------+-------------------+---------+
+4 rows in set (0.00 sec)
+ SELECT * FROM tbl_2;
++----------+---------------+--------------------------+-------+---------+
+| tbl_2_id | name          | url                      | alexa | country |
++----------+---------------+--------------------------+-------+---------+
+|        1 | Google        | https://www.google.com/  |     1 | USA     |
+|        2 | 淘宝          | https://www.taobao.com/  |    13 | CN      |
+|        3 | 微博          | http://weibo.com/        |    20 | CN      |
+|        4 | Facebook      | https://facebook.com/    |     3 | USA     |
+|        5 | stackoverflow | http://stackoverflow.com |     0 | IND     |
++----------+---------------+--------------------------+-------+---------+
+5 rows in set (0.00 sec)
++----+------------+-------------------+---------+
+| id | app_name   | url               | country |
++----+------------+-------------------+---------+
+|  1 | QQ APP     | http://im.qq.com/ | CN      |
+|  2 | 微博 APP   | http://weibo.com/ | CN      |
++----+------------+-------------------+---------+
+2 rows in set (0.00 sec)
