@@ -1,0 +1,63 @@
+简介：当我们需要修改数据表名或者修改数据表字段时，就需要使用到MySQL ALTER命令。
+删除列：
+  命令：ALTER TABLE [表名]  DROP [列名]
+  例子：
+   DESC test;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| a     | int         | YES  |     | NULL    |                |
+| b     | varchar(10) | YES  |     | NULL    |                |
+| c     | varchar(10) | YES  |     | NULL    |                |
+| id    | int         | NO   | PRI | NULL    | auto_increment |
++-------+-------------+------+-----+---------+----------------+
+4 rows in set (0.01 sec)
+
+mysql> ALTER TABLE test DROP a;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC test;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| b     | varchar(10) | YES  |     | NULL    |                |
+| c     | varchar(10) | YES  |     | NULL    |                |
+| id    | int         | NO   | PRI | NULL    | auto_increment |
++-------+-------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+添加列：
+  命令：ALTER TABLE [表名] ADD [列名] [类型];
+  例子：
+  DESC test;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| b     | varchar(10) | YES  |     | NULL    |                |
+| c     | varchar(10) | YES  |     | NULL    |                |
+| id    | int         | NO   | PRI | NULL    | auto_increment |
++-------+-------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> ALTER TABLE test ADD a INT;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC test;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| b     | varchar(10) | YES  |     | NULL    |                |
+| c     | varchar(10) | YES  |     | NULL    |                |
+| id    | int         | NO   | PRI | NULL    | auto_increment |
+| a     | int         | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+注意：如果你需要指定新增字段的位置，可以使用MySQL提供的关键字 FIRST (设定位第一列)， AFTER 字段名（设定位于某个字段之后）。
+修改列名，类型：
+  命令：ALTER TABLE [表名] MODIFY [列名] [类型];
+        mysql> ALTER TABLE [表名] CHANGE [原列名] [新列名] [类型];
+修改列默认值：
+  命令：ALTER TABLE [表名] ALTER [列名] SET DEFAULT [数值]
+修改表名：
+  命令：ALTER TABLE [旧表名] RENAME TO [新表名];
