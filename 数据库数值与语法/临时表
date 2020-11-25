@@ -1,0 +1,38 @@
+简介：MySQL 临时表在我们需要保存一些临时数据时是非常有用的。临时表只在当前连接可见，当关闭连接时，Mysql会自动删除表并释放所有空间。
+命令：CREATE TEMPORARY TABLE [表名]
+例子：
+ CREATE TEMPORARY TABLE tmptbl
+    ->
+    -> (name VARCHAR(100) NOT NULL,
+    -> a DECIMAL(12,2) NOT NULL DEFAULT 0.00,
+    -> avg_p DECIMAL(7,2) NOT NULL DEFAULT 0.00,
+    -> t INT UNSIGNED NOT NULL DEFAULT 0);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> INSERT INTO tmptbl
+    -> VALUEs
+    -> ("abc",100.25,90,2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM tmptbl;
++------+--------+-------+---+
+| name | a      | avg_p | t |
++------+--------+-------+---+
+| abc  | 100.25 | 90.00 | 2 |
++------+--------+-------+---+
+1 row in set (0.00 sec)
+
+mysql> SHOW TABLES;
++------------------------+
+| Tables_in_databasetest |
++------------------------+
+| employee_tbl           |
+| tbl_1                  |
+| tbl_2                  |
+| tbl_3                  |
+| test                   |
+| transaction_test       |
++------------------------+
+6 rows in set (0.00 sec)
+删除临时表
+命令： DROP TABLE [表名]
