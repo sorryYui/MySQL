@@ -1,0 +1,10 @@
+1.普通索引index :加速查找
+2.唯一索引
+    主键索引：primary key ：加速查找+约束（不为空且唯一）
+    唯一索引：unique：加速查找+约束 （唯一）
+3.联合索引
+    -primary key(id,name):联合主键索引
+    -unique(id,name):联合唯一索引
+    -index(id,name):联合普通索引
+4.全文索引fulltext :用于搜索很长一篇文章的时候，效果最好。
+5.空间索引spatial :了解就好，几乎不用
