@@ -1,0 +1,60 @@
+简介：它与前面的普通索引类似，不同的就是：索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一。
+注意：主索引的列的值必须唯一，且不为null。
+1.创建索引
+  命令：CREATE UNIQUE INDEX indexName ON mytable(username(length)) 
+  例子：
+  CREATE UNIQUE INDEX index1 ON tbl_2(name(10));
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC tbl_2;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| tbl_2_id | int          | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(100) | NO   | UNI | NULL    |                |
+| url      | varchar(100) | NO   |     | NULL    |                |
+| alexa    | int          | NO   |     | NULL    |                |
+| country  | varchar(100) | NO   |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+添加索引：
+ALTER table mytable ADD UNIQUE [indexName] (username(length))
+例子：
+ ALTER TABLE tbl_2 ADD UNIQUE index2(url);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC tbl_2;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| tbl_2_id | int          | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(100) | NO   | UNI | NULL    |                |
+| url      | varchar(100) | NO   | UNI | NULL    |                |
+| alexa    | int          | NO   |     | NULL    |                |
+| country  | varchar(100) | NO   |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+删除索引：
+  命令：ALTER TABLE testalter_tbl DROP INDEX c;
+例子：
+ALTER TABLE tbl_2 DROP INDEX index1;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE tbl_2 DROP INDEX index2;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC tbl_2;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| tbl_2_id | int          | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(100) | NO   |     | NULL    |                |
+| url      | varchar(100) | NO   |     | NULL    |                |
+| alexa    | int          | NO   |     | NULL    |                |
+| country  | varchar(100) | NO   |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
