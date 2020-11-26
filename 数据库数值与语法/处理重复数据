@@ -1,0 +1,42 @@
+有些 MySQL 数据表中可能存在重复的记录，有些情况我们允许重复数据的存在，但有时候我们也需要删除这些重复的数据。
+1.防止表中出现重复的数据
+  可以在 MySQL 数据表中设置指定的字段为 PRIMARY KEY（主键） 或者 UNIQUE（唯一） 索引来保证数据的唯一性。
+  例子：
+   CREATE TEMPORARY TABLE tmptbl
+    -> (first_name VARCHAR(20) NOT NULL,
+    ->  last_name VARCHAR(20) NOT NULL,
+    -> sex CHAR(10),
+    -> PRIMARY KEY(first_name,last_name));
+Query OK, 0 rows affected (0.00 sec)
+如果我们设置了唯一索引，那么在插入重复数据时，SQL 语句将无法执行成功,并抛出错。
+  2.INSERT IGNORE INTO
+  简介：INSERT IGNORE INTO 与 INSERT INTO 的区别就是 INSERT IGNORE INTO 会忽略数据库中已经存在的数据，如果数据库没有数据，就插入新的数据，如果有数据的话就跳过这条数据。
+  例子：
+  INSERT IGNORE INTO tmptbl
+    -> (first_name,last_name)
+    -> VALUES
+    -> ("joy","TH");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT IGNORE INTO tmptbl
+    -> (first_name,last_name)
+    -> VALUES
+    -> ("joy","TH");
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+mysql> INSERT INTO tmptbl
+    -> (first_name,last_name)
+    -> VALUES
+    -> ("joy","TH");
+ERROR 1062 (23000): Duplicate entry 'joy-TH' for key 'tmptbl.PRIMARY'
+2.统计重复数据
+步骤：
+  1.确定哪一列包含的值可能会重复。
+  2.在列选择列表使用COUNT(*)列出的那些列。
+  3.在GROUP BY子句中列出的列。
+  4.HAVING子句设置重复数大于1。
+3.过滤重复数据
+  需要读取不重复的数据可以在 SELECT 语句中使用 DISTINCT 关键字来过滤重复数据。
+4.删除重复数据
+  1.添加主键
+  2.不重复复制表。
