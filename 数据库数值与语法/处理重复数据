@@ -39,4 +39,4 @@ ERROR 1062 (23000): Duplicate entry 'joy-TH' for key 'tmptbl.PRIMARY'
   需要读取不重复的数据可以在 SELECT 语句中使用 DISTINCT 关键字来过滤重复数据。
 4.删除重复数据
   1.添加主键
-  2.不重复复制表。
+  2.通过GROUP UP复制表。
