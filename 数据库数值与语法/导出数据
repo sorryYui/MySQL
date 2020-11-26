@@ -1,4 +1,4 @@
-MySQL中可以使用SELECT...INTO OUTFILE语句来简单的导出数据到文本文件上。
+1.MySQL中可以使用SELECT...INTO OUTFILE语句来简单的导出数据到文本文件上。
 命令：SELECT [列名1][列名2]... FROM [表名1][表名2]... OUTFILE [文件名]
 例子：
  SELECT * FROM employee_tbl INTO OUTFILE "F:\\outfile.txt";
@@ -22,3 +22,6 @@ mysql> SELECT * FROM employee_tbl;
 4	小王	2016-04-07	4
 5	小明	2016-04-11	4
 6	小明	2016-04-04	2
+2.导出SQL文件
+mysqldump 是 mysql 用于转存储数据库的实用程序。它主要产生一个 SQL 脚本，其中包含从头重新创建数据库所必需的命令 CREATE TABLE INSERT 等。
+使用 mysqldump 导出数据需要使用 --tab 选项来指定导出文件指定的目录，该目标必须是可写的。
