@@ -1,0 +1,71 @@
+简介：MySQL 序列是一组整数：1, 2, 3, ...，由于一张数据表只能有一个字段自增主键， 如果想实现其他字段也实现自动增加，就可以使用MySQL序列来实现。
+1.AUTO_INCREMENT
+  1.在创建时指定
+    命令：[列表名] [属性] AUTO_INCREMENT
+    例子：
+     CREATE TEMPORARY TABLE tmptbl
+    -> (id INT NOT NULL AUTO_INCREMENT,
+    -> PRIMARY KEY(id));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> INSERT INTO tmptbl
+    -> VALUES
+    -> ();
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO tmptbl VALUES();
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM tmptbl;
++----+
+| id |
++----+
+|  1 |
+|  2 |
++----+
+2 rows in set (0.00 sec)
+2.重置序列
+  命令：
+  ALTER TABLE [表名] DROP [列名];
+  ALTER TABLE [表名]
+  ADD [列名] INT UNSIGNED NOT NULL AUTO_INCREMENT FIRST,
+  ADD PRIMARY KEY ([列名]);
+  例子：
+  
+  ALTER TABLE tmptbl DROP id;
+  ALTER TABLE tmptbl ADD id INT NOT NULL AUTO_INCREMENT,
+    -> ADD PRIMARY KEY(id)
+    -> ;
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM tmptbl;
++------+----+
+| name | id |
++------+----+
+|      |  1 |
+|      |  2 |
++------+----+
+2 rows in set (0.00 sec)
+设置序列的开始值
+  1.创建时设置
+    命令：
+    在最后一行：....AUTO_INCREMENT = 100....
+  2.使用ALTER命令
+    命令：ALTER TABLE [表名] AUTO_INCREMENT;
+    例子：
+     ALTER TABLE tmptbl AUTO_INCREMENT = 100;
+     INSERT INTO tmptbl(name)
+    -> VALUES
+    -> ("1");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM tmptbl;
++------+-----+
+| name | id  |
++------+-----+
+|      |   1 |
+|      |   2 |
+| 1    | 100 |
++------+-----+
+3 rows in set (0.00 sec)
